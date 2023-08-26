@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tch_indonesia/src/app/bloc/theme_mode/theme_mode_bloc.dart';
+import 'package:tch_indonesia/src/app/view/page/login/login_page.dart';
 import 'package:tch_indonesia/src/app/view/page/sign_up/widget/sign_up_screen.dart';
 import 'package:tch_indonesia/src/app/view/page/theme_mode_switch.dart';
 
@@ -119,7 +120,7 @@ class WelcomeScreen extends StatelessWidget {
               borderRadius: BorderRadius.circular(10),
               child: InkWell(
                 onTap: () {
-                  // Navigator.push(context, LoginPage.route(context));
+                  Navigator.push(context, LoginPage.route(context));
                 },
                 child: const Padding(
                     padding: EdgeInsets.symmetric(vertical: 15, horizontal: 40),

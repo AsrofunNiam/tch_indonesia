@@ -8,7 +8,7 @@ class RequestHeader {
 }
 
 abstract class Api {
-  static String urlApi = 'http://103.150.116.14:1337';
+  static String urlApi = 'http://fic5.flutterdev.my.id';
   static final dio = Dio()
     ..interceptors.add(
       PrettyDioLogger(
