@@ -2,12 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:tch_indonesia/src/app/view/page/setting/widget/setting_screen.dart';
 
 class SettingPage extends StatelessWidget {
-  const SettingPage({super.key});
+  const SettingPage({super.key, required this.context});
+  final BuildContext context;
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      child: SingleChildScrollView(
+    return Scaffold(
+      body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.only(
             top: 70,

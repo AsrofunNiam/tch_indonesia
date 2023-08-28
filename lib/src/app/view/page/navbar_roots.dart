@@ -29,33 +29,36 @@ class NavBarRoots extends StatefulWidget {
 }
 
 class _NavBarRootsState extends State<NavBarRoots> {
-  final int _selectedIndex = 0;
+  int _selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
     final screens = [
       HomePage(),
-      const SettingPage(),
+      SettingPage(context: context),
       const SchedulePage(),
-      const SettingPage(),
+      SettingPage(context: context),
       // SettingPage(user: widget.user),
       // const SchedulePage(),
       // SettingPage(user: widget.user),
     ];
+
+    final PageController test = PageController();
     return Scaffold(
       backgroundColor: Colors.transparent,
-      body: screens[_selectedIndex],
+      body: PageView(children: screens, controller: test),
       bottomNavigationBar: SizedBox(
         height: 80,
         child: BottomNavigationBar(
+            currentIndex: _selectedIndex,
             backgroundColor: Colors.white,
             type: BottomNavigationBarType.fixed,
             selectedItemColor: const Color.fromARGB(235, 85, 94, 218),
             unselectedItemColor: Colors.black,
             selectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold),
             onTap: (value) {
-              Navigator.push(context, MaterialPageRoute(builder: (context) {
-                return screens[value];
-              }));
+              test.jumpToPage(value);
+              _selectedIndex = value;
+              setState(() {});
             },
             items: const [
               BottomNavigationBarItem(
