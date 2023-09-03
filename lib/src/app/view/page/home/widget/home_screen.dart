@@ -47,18 +47,18 @@ class _HomeScreenState extends State<HomeScreen> {
           children: [
             Container(
               padding: const EdgeInsets.all(15),
-              child: Row(
+              child: const Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
                     'Hello',
-                    style: const TextStyle(
+                    style: TextStyle(
                       // color: Colors.white,
                       fontSize: 25,
                       fontWeight: FontWeight.w500,
                     ),
                   ),
-                  const CircleAvatar(
+                  CircleAvatar(
                     backgroundColor: Color.fromARGB(235, 85, 94, 218),
                     radius: 25,
                     backgroundImage: AssetImage('assets/images/person.png'),

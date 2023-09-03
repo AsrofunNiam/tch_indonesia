@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tch_indonesia/src/app/bloc/clinic_list_query/clinic_list_query_bloc.dart';
 import 'package:tch_indonesia/src/app/model/clinic_list.dart';
+import 'package:tch_indonesia/src/app/view/page/doctor_list/doctor_list_page.dart';
 
 class ClinicScreen extends StatefulWidget {
   const ClinicScreen._(
@@ -224,68 +225,73 @@ class _ClinicScreenState extends State<ClinicScreen> {
               const SizedBox(
                 height: 10,
               ),
-              SizedBox(
-                height: 140,
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: widget.listDoctorImages.length,
-                  itemBuilder: (context, index) {
-                    return Container(
-                      margin: const EdgeInsets.all(10),
-                      padding: const EdgeInsets.symmetric(vertical: 5),
-                      decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(10),
-                          boxShadow: const [
-                            BoxShadow(
-                                color: Color.fromARGB(235, 126, 133, 240),
-                                blurRadius: 4,
-                                spreadRadius: 2)
-                          ]),
-                      child: SizedBox(
-                        width: MediaQuery.of(context).size.width / 1.5,
-                        child: Column(
-                          children: [
-                            ListTile(
-                              leading: CircleAvatar(
-                                radius: 25,
-                                backgroundImage:
-                                    AssetImage(widget.listDoctorImages[index]),
-                              ),
-                              title: const Text(
-                                'Dr. Doctor Name',
-                                style: TextStyle(fontWeight: FontWeight.w500),
-                              ),
-                              subtitle: const Text('Specialist Origen'),
-                              trailing: const Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  Icon(
-                                    Icons.star,
-                                    color: Colors.amber,
-                                    size: 20,
-                                  ),
-                                  Icon(
-                                    Icons.star,
-                                    color: Colors.amber,
-                                    size: 20,
-                                  ),
-                                  SizedBox(
-                                    width: 5,
-                                  ),
-                                  Text(
-                                    '4.7',
-                                    style: TextStyle(color: Colors.black),
-                                  )
-                                ],
-                              ),
-                            )
-                          ],
+              InkWell(
+                onTap: () {
+                  Navigator.push(context, DoctorListPage.route());
+                },
+                child: SizedBox(
+                  height: 140,
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: widget.listDoctorImages.length,
+                    itemBuilder: (context, index) {
+                      return Container(
+                        margin: const EdgeInsets.all(10),
+                        padding: const EdgeInsets.symmetric(vertical: 5),
+                        decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(10),
+                            boxShadow: const [
+                              BoxShadow(
+                                  color: Color.fromARGB(235, 126, 133, 240),
+                                  blurRadius: 4,
+                                  spreadRadius: 2)
+                            ]),
+                        child: SizedBox(
+                          width: MediaQuery.of(context).size.width / 1.5,
+                          child: Column(
+                            children: [
+                              ListTile(
+                                leading: CircleAvatar(
+                                  radius: 25,
+                                  backgroundImage: AssetImage(
+                                      widget.listDoctorImages[index]),
+                                ),
+                                title: const Text(
+                                  'Dr. Doctor Name',
+                                  style: TextStyle(fontWeight: FontWeight.w500),
+                                ),
+                                subtitle: const Text('Specialist Origen'),
+                                trailing: const Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    Icon(
+                                      Icons.star,
+                                      color: Colors.amber,
+                                      size: 20,
+                                    ),
+                                    Icon(
+                                      Icons.star,
+                                      color: Colors.amber,
+                                      size: 20,
+                                    ),
+                                    SizedBox(
+                                      width: 5,
+                                    ),
+                                    Text(
+                                      '4.7',
+                                      style: TextStyle(color: Colors.black),
+                                    )
+                                  ],
+                                ),
+                              )
+                            ],
+                          ),
                         ),
-                      ),
-                    );
-                  },
+                      );
+                    },
+                  ),
                 ),
               ),
               const SizedBox(

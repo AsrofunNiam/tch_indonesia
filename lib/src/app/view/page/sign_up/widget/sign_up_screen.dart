@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tch_indonesia/src/app/bloc/clinic_list_query/clinic_list_query_bloc.dart';
 import 'package:tch_indonesia/src/app/bloc/create_user/create_user_bloc.dart';
 import 'package:tch_indonesia/src/app/view/page/login/login_page.dart';
 import 'package:tch_indonesia/src/app/view/page/welcome/welcome_page.dart';
@@ -14,6 +15,10 @@ class SignUpScreen extends StatefulWidget {
           BlocProvider(
             create: (context) => CreateUserBloc(),
           ),
+          //   BlocProvider(
+          //   create: (context) =>
+          //       ClinicListQueryBloc()..add(const ClinicListQueryEvent.get()),
+          // ),
         ],
         child: const SignUpScreen(),
       ),

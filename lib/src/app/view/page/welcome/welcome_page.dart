@@ -20,7 +20,7 @@ class _WelcomePageState extends State<WelcomePage> {
         child: Container(
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,
-          padding: const EdgeInsets.all(10),
+          padding: const EdgeInsets.all(20),
           color: Colors.white,
           child: const WelcomeScreen(),
         ),

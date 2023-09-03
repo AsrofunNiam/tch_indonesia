@@ -30,7 +30,7 @@ class ClinicListRepository extends Repository {
               "updatedAt": "2023-08-02T11:19:07.756Z",
               "publishedAt": "2023-06-15T08:35:25.622Z",
               "photo":
-                  "http://103.150.116.14:1337/uploads/scaled_ac56046f027832f62f1baa87550f6b8d_0dd329ec72.jpg",
+                  "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Y2xpbmljfGVufDB8fDB8fHww&w=1000&q=80",
               "userId": "27",
               "rating": 3,
             }
@@ -48,7 +48,7 @@ class ClinicListRepository extends Repository {
               "updatedAt": "2023-08-02T08:15:38.718Z",
               "publishedAt": "2023-06-15T08:35:25.622Z",
               "photo":
-                  "https://images.unsplash.com/photo-1533090699061-11bd9fc5a96b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=686&q=80",
+                  "https://images.unsplash.com/photo-1629909613654-28e377c37b09?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y2xpbmljfGVufDB8fDB8fHww&w=1000&q=80",
               "userId": "1",
               "rating": 5,
             }
@@ -65,7 +65,7 @@ class ClinicListRepository extends Repository {
               "updatedAt": "2023-06-26T09:14:28.604Z",
               "publishedAt": "2023-06-26T09:14:28.600Z",
               "photo":
-                  "https://media-cdn.tripadvisor.com/media/photo-s/0d/db/3f/bd/getlstd-property-photo.jpg",
+                  "https://media.blogto.com/articles/20200812-shoppersclinic.jpg?w=2048&cmd=resize_then_crop&height=1365&quality=70",
               "userId": "1",
               "rating": 4,
             }
@@ -83,7 +83,7 @@ class ClinicListRepository extends Repository {
               "updatedAt": "2023-06-26T14:30:47.662Z",
               "publishedAt": "2023-06-26T14:30:47.656Z",
               "photo":
-                  "http://103.150.116.14:1337/uploads/scaled_IMG_20230625_WA_0016_097fff9d41.jpg",
+                  "https://content.jdmagicbox.com/comp/kolkata/h5/033pxx33.xx33.200921141250.w6h5/catalogue/apollo-clinic-beliaghata-beliaghata-kolkata-diagnostic-centres-aoiiyu8w1u.jpg?clr=334026",
               "userId": "1",
               "rating": 5,
             }
@@ -101,7 +101,7 @@ class ClinicListRepository extends Repository {
               "updatedAt": "2023-06-26T15:20:45.553Z",
               "publishedAt": "2023-06-26T15:20:45.547Z",
               "photo":
-                  "http://103.150.116.14:1337/uploads/scaled_IMG_20230625_WA_0017_2055fb9024.jpg",
+                  "https://content.jdmagicbox.com/comp/kolkata/h5/033pxx33.xx33.200921141250.w6h5/catalogue/apollo-clinic-beliaghata-beliaghata-kolkata-diagnostic-centres-aoiiyu8w1u.jpg?clr=334026",
               "userId": "1",
               "rating": 4.7,
             }
@@ -118,7 +118,8 @@ class ClinicListRepository extends Repository {
               "createdAt": "2023-06-29T13:58:36.388Z",
               "updatedAt": "2023-06-29T13:58:36.388Z",
               "publishedAt": "2023-06-29T13:58:36.383Z",
-              "photo": "https://picsum.photos/200/300",
+              "photo":
+                  "https://media.istockphoto.com/id/1225898954/vector/medical-clinic-building-simple-flat-illustration.jpg?s=612x612&w=0&k=20&c=JklgLCtm5NpwE5i6yN0JTIqp7vPlA7YB3RPYNIUHXlQ=",
               "userId": "27",
               "rating": 4.7,
             }

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tch_indonesia/src/app/bloc/theme_mode/theme_mode_bloc.dart';
-import 'package:tch_indonesia/src/app/view/maps/maps_test.dart';
+import 'package:tch_indonesia/src/app/view/new-fiture/maps/maps_test.dart';
+import 'package:tch_indonesia/src/app/view/page/doctor_list/doctor_list_page.dart';
+import 'package:tch_indonesia/src/app/view/page/doctor_list/widget/doctor_list_screen.dart';
 import 'package:tch_indonesia/src/app/view/page/login/login_page.dart';
 import 'package:tch_indonesia/src/app/view/page/sign_up/widget/sign_up_screen.dart';
 import 'package:tch_indonesia/src/app/view/page/theme_mode_switch.dart';
@@ -26,9 +28,6 @@ class WelcomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const SizedBox(
-          height: 70,
-        ),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
@@ -48,11 +47,7 @@ class WelcomeScreen extends StatelessWidget {
               alignment: Alignment.centerRight,
               child: TextButton(
                   onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(
-                      builder: (context) {
-                        return const MapsTest();
-                      },
-                    ));
+                    Navigator.push(context, DoctorListPage.route());
                   },
                   child: const Text(
                     'New Future ',
@@ -90,7 +85,7 @@ class WelcomeScreen extends StatelessWidget {
               wordSpacing: 2),
         ),
         const SizedBox(
-          height: 40,
+          height: 60,
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -115,6 +110,9 @@ class WelcomeScreen extends StatelessWidget {
                           fontWeight: FontWeight.bold),
                     )),
               ),
+            ),
+            SizedBox(
+              height: 20,
             ),
             Material(
               color: const Color.fromARGB(235, 85, 94, 218),

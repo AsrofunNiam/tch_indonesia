@@ -29,6 +29,7 @@ dependencies:
   geolocator: ^10.0.0
   flutter_polyline_points: ^2.0.0
   flutter_svg: ^2.0.7
+  circular_menu: ^2.0.1
 
 dev_dependencies:
   flutter_test:
