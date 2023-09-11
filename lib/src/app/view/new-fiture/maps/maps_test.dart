@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:circular_menu/circular_menu.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_polyline_points/flutter_polyline_points.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class MapsTest extends StatefulWidget {
@@ -13,7 +12,7 @@ class MapsTest extends StatefulWidget {
 }
 
 class _MapsTestState extends State<MapsTest> {
-  Completer<GoogleMapController> _createState = Completer();
+  final Completer<GoogleMapController> _createState = Completer();
   String googleKey = 'AIzaSyCICwChYERrvs8w6RUSXv-Ad9H82uZkcKU';
   final CameraPosition _kGoolePlex = const CameraPosition(
       target: LatLng(-6.244392, 106.776544), zoom: 14.4746);
@@ -44,13 +43,13 @@ class _MapsTestState extends State<MapsTest> {
         backgroundWidget: Center(
           child: RichText(
             text: TextSpan(
-              style: TextStyle(color: Colors.black, fontSize: 28),
+              style: const TextStyle(color: Colors.black, fontSize: 28),
               children: <TextSpan>[
                 TextSpan(
                   text: _colorName,
                   style: TextStyle(color: _color, fontWeight: FontWeight.bold),
                 ),
-                TextSpan(text: ' button is clicked.'),
+                // TextSpan(text: ' button is clicked.'),
               ],
             ),
           ),
@@ -104,7 +103,7 @@ class _MapsTestState extends State<MapsTest> {
         ]);
   }
 
-  String _colorName = 'No';
+  String? _colorName;
   Color _color = Colors.black;
 
   @override

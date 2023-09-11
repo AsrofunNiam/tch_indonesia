@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tch_indonesia/src/app/bloc/clinic_list_query/clinic_list_query_bloc.dart';
 import 'package:tch_indonesia/src/app/bloc/doctor_list_query/doctor_list_query_bloc.dart';
 import 'package:tch_indonesia/src/app/model/clinic_list.dart';
+import 'package:tch_indonesia/src/app/view/new-fiture/maps/maps_test.dart';
 import 'package:tch_indonesia/src/app/view/page/doctor_list/doctor_list_page.dart';
 
 class ClinicScreen extends StatefulWidget {
@@ -336,24 +337,35 @@ class _ClinicScreenState extends State<ClinicScreen> {
               const SizedBox(
                 height: 5,
               ),
-              ListTile(
-                  leading: Container(
-                    // color: Colors.red,
-                    padding: const EdgeInsets.all(10),
-                    decoration: const BoxDecoration(
-                      color: Color.fromARGB(235, 126, 133, 240),
-                      shape: BoxShape.circle,
+              InkWell(
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(
+                    builder: (context) {
+                      return const MapsTest();
+                    },
+                  ));
+                },
+                child: ListTile(
+                    leading: Container(
+                      // color: Colors.red,
+                      padding: const EdgeInsets.all(10),
+                      decoration: const BoxDecoration(
+                        color: Color.fromARGB(235, 126, 133, 240),
+                        shape: BoxShape.circle,
+                      ),
+                      child: const Icon(
+                        Icons.location_on,
+                        color: Colors.black,
+                      ),
                     ),
-                    child: const Icon(
-                      Icons.location_on,
-                      color: Colors.black,
+                    title: Text(
+                      '${widget.clinicList.clinicListAttribute?.name}',
+                      style: const TextStyle(fontWeight: FontWeight.w500),
                     ),
-                  ),
-                  title: const Text(
-                    'Clinic Hippokrates Medika',
-                    style: TextStyle(fontWeight: FontWeight.w500),
-                  ),
-                  subtitle: const Text('Kebayoran Lama, Jakarta Selatan'))
+                    subtitle: Text(
+                        '${widget.clinicList.clinicListAttribute?.address}')),
+              ),
+              Container()
             ],
           ),
         )
