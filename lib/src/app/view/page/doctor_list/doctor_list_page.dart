@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:tch_indonesia/src/app/model/clinic_list.dart';
-import 'package:tch_indonesia/src/app/view/page/clinic/widget/clinic_screen.dart';
+import 'package:tch_indonesia/src/app/model/doctor_list.dart';
 import 'package:tch_indonesia/src/app/view/page/clinic/widget/clinic_screen_footer.dart';
 import 'package:tch_indonesia/src/app/view/page/doctor_list/widget/doctor_list_screen.dart';
 
-class DoctorListPage extends StatefulWidget {
-  const DoctorListPage._();
+class DoctorListPage extends StatelessWidget {
+  const DoctorListPage._({required this.doctorList});
 
-  static Route<bool?> route() {
+  final DoctorList? doctorList;
+
+  static Route<bool?> route({DoctorList? doctorList}) {
     return MaterialPageRoute(builder: (context) {
-      return const DoctorListPage._();
+      return DoctorListPage._(
+        doctorList: doctorList,
+      );
       // return MultiBlocProvider(
       //   providers: const [
       //     // BlocProvider(
@@ -26,18 +29,13 @@ class DoctorListPage extends StatefulWidget {
   }
 
   @override
-  State<DoctorListPage> createState() => _DoctorListPageState();
-}
-
-class _DoctorListPageState extends State<DoctorListPage> {
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(235, 231, 232, 247),
+      backgroundColor: const Color.fromARGB(235, 231, 232, 247),
       body: SingleChildScrollView(
-        child: DoctorListScreen.prepare(),
+        child: DoctorListScreen.prepare(doctorList: doctorList!),
       ),
-      bottomNavigationBar: const ClinicScreenFooter(),
+      bottomNavigationBar: ClinicScreenFooter(price: doctorList?.pricing),
     );
   }
 }

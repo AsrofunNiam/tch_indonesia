@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:dio/dio.dart';
-import 'package:tch_indonesia/src/app/model/clinic_list.dart';
 import 'package:tch_indonesia/src/app/model/doctor_list.dart';
 import 'package:tch_indonesia/src/app/resource/base_api.dart';
 
@@ -19,14 +18,14 @@ class DoctorListRepository extends Repository {
       final dummyClinic = <dynamic, dynamic>{
         'data': [
           {
-            "id_doctor": "MRCCC123",
+            "id_doctor": "KMD-MRCCC33",
             "name": "Dr. Daniel Gunawan, SpPD",
             "description": "INTERNAL MEDICINE",
             "schedule_in": "2023-06-15T09:42:23.355Z",
             "schedule_out": "2023-06-15T09:42:23.355Z",
             "pricing": 500000,
             "photo":
-                "http://103.150.116.14:1337/uploads/scaled_ac56046f027832f62f1baa87550f6b8d_0dd329ec72.jpg",
+                "https://images-tm.tempo.co/all/2020/11/14/756960/756960_1200.jpg",
             "rating": 3.7,
             "patient": 200,
             "flight_hours": 1000,
@@ -50,7 +49,7 @@ class DoctorListRepository extends Repository {
                 "updatedAt": "2023-08-02T11:19:07.756Z",
                 "publishedAt": "2023-06-15T08:35:25.622Z",
                 "photo":
-                    "http://103.150.116.14:1337/uploads/scaled_ac56046f027832f62f1baa87550f6b8d_0dd329ec72.jpg",
+                    "https://thumbs.dreamstime.com/b/asian-male-doctor-writing-clipboard-portrait-wearing-white-coat-stethoscope-looking-camera-smiling-against-165290492.jpg",
                 "userId": "27",
                 "rating": 3
               }
@@ -64,7 +63,7 @@ class DoctorListRepository extends Repository {
             "schedule_out": "2023-06-15T09:42:23.355Z",
             "pricing": 700000,
             "photo":
-                "http://103.150.116.14:1337/uploads/scaled_ac56046f027832f62f1baa87550f6b8d_0dd329ec72.jpg",
+                "https://jambiekspres.disway.id/upload/large/ecdf2f73370048e648581ff22c2945e7.png",
             "rating": 3.7,
             "patient": 200,
             "flight_hours": 1000,
@@ -88,7 +87,7 @@ class DoctorListRepository extends Repository {
                 "updatedAt": "2023-08-02T11:19:07.756Z",
                 "publishedAt": "2023-06-15T08:35:25.622Z",
                 "photo":
-                    "http://103.150.116.14:1337/uploads/scaled_ac56046f027832f62f1baa87550f6b8d_0dd329ec72.jpg",
+                    "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8ZG9jdG9yfGVufDB8fDB8fHww&w=1000&q=80",
                 "userId": "27",
                 "rating": 3
               }
@@ -102,7 +101,7 @@ class DoctorListRepository extends Repository {
             "schedule_out": "2023-06-15T09:42:23.355Z",
             "pricing": 500000,
             "photo":
-                "http://103.150.116.14:1337/uploads/scaled_ac56046f027832f62f1baa87550f6b8d_0dd329ec72.jpg",
+                "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8ZG9jdG9yfGVufDB8fDB8fHww&w=1000&q=80",
             "rating": 3.7,
             "patient": 200,
             "flight_hours": 1000,
@@ -126,7 +125,7 @@ class DoctorListRepository extends Repository {
                 "updatedAt": "2023-08-02T11:19:07.756Z",
                 "publishedAt": "2023-06-15T08:35:25.622Z",
                 "photo":
-                    "http://103.150.116.14:1337/uploads/scaled_ac56046f027832f62f1baa87550f6b8d_0dd329ec72.jpg",
+                    "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8ZG9jdG9yfGVufDB8fDB8fHww&w=1000&q=80",
                 "userId": "27",
                 "rating": 3
               }
@@ -140,7 +139,7 @@ class DoctorListRepository extends Repository {
             "schedule_out": "2023-06-15T09:42:23.355Z",
             "pricing": 500000,
             "photo":
-                "http://103.150.116.14:1337/uploads/scaled_ac56046f027832f62f1baa87550f6b8d_0dd329ec72.jpg",
+                "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8ZG9jdG9yfGVufDB8fDB8fHww&w=1000&q=80",
             "rating": 3.7,
             "patient": 200,
             "flight_hours": 1000,
@@ -164,7 +163,7 @@ class DoctorListRepository extends Repository {
                 "updatedAt": "2023-08-02T11:19:07.756Z",
                 "publishedAt": "2023-06-15T08:35:25.622Z",
                 "photo":
-                    "http://103.150.116.14:1337/uploads/scaled_ac56046f027832f62f1baa87550f6b8d_0dd329ec72.jpg",
+                    "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8ZG9jdG9yfGVufDB8fDB8fHww&w=1000&q=80",
                 "userId": "27",
                 "rating": 3
               }

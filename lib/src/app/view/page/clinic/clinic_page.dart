@@ -53,7 +53,7 @@ class _ClinicPageState extends State<ClinicPage> {
             index: widget.index,
             clinicList: widget.clinicList),
       ),
-      bottomNavigationBar: const ClinicScreenFooter(),
+      bottomNavigationBar: ClinicScreenFooter(),
     );
   }
 }

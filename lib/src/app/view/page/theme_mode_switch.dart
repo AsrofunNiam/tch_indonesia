@@ -16,8 +16,7 @@ class ThemeModeSwitcher extends StatelessWidget {
                 ? Icons.wb_sunny_rounded
                 : Icons.nightlight_round),
             onPressed: () {
-              BlocProvider.of<ThemeModeBloc>(context)
-                  .add(const ThemeModeEvent.started());
+              BlocProvider.of<ThemeModeBloc>(context).add(state);
             },
           );
         },

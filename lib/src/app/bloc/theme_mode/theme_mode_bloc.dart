@@ -1,25 +1,26 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hydrated_bloc/hydrated_bloc.dart';
 
-part 'theme_mode_bloc.freezed.dart';
+// part 'theme_mode_bloc.freezed.dart';
 
-@freezed
-class ThemeModeState with _$ThemeModeState {
-  const factory ThemeModeState.initial() = _Initial;
-}
+// @freezed
+// class ThemeModeState with _$ThemeModeState {
+//   const factory ThemeModeState.initial() = _Initial;
+// }
 
-@freezed
-class ThemeModeEvent with _$ThemeModeEvent {
-  const factory ThemeModeEvent.started({Theme? theme}) = _Started;
-}
+// @freezed
+// class ThemeModeEvent with _$ThemeModeEvent {
+//   const factory ThemeModeEvent.started({ThemeMode? theme}) = _Started;
+// }
 
-class ThemeModeBloc extends Bloc<ThemeModeEvent, ThemeMode> {
+class ThemeModeBloc extends HydratedBloc<ThemeMode, ThemeMode> {
   ThemeModeBloc() : super(ThemeMode.system) {
-    on<ThemeModeEvent>((event, emit) async {
-      event.when(started: (theme) {
-        emit(state == ThemeMode.dark ? ThemeMode.light : ThemeMode.dark);
-      });
+    on<ThemeMode>((event, emit) async {
+      // event.when(started: (theme) {
+      emit(state == ThemeMode.dark ? ThemeMode.light : ThemeMode.dark);
+      // });
     });
   }
   @override

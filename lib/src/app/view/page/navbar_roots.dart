@@ -8,7 +8,7 @@ class NavBarRoots extends StatefulWidget {
 
   static Route<bool?> prepare() {
     return MaterialPageRoute(builder: (context) {
-      return NavBarRoots._();
+      return const NavBarRoots._();
       // return MultiBlocProvider(
       //   providers: const [
       //     // BlocProvider(

@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class ClinicScreenFooter extends StatelessWidget {
-  const ClinicScreenFooter({
-    super.key,
-  });
+  ClinicScreenFooter({super.key, this.price});
+  int? price;
+  // int? priceNew = money
+  final currencyFormatter = NumberFormat('#,##0.00', 'ID');
 
   @override
   Widget build(BuildContext context) {
@@ -23,16 +25,17 @@ class ClinicScreenFooter extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          const Row(
+          Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
+              const Text(
                 'Consultation Price',
                 style: TextStyle(color: Colors.black38, fontSize: 20),
               ),
               Text(
-                'Rp. 200.000',
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
+                'Rp. ${currencyFormatter.format(price ?? 0)}',
+                style:
+                    const TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
               )
             ],
           ),

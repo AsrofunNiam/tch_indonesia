@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tch_indonesia/src/app/bloc/clinic_list_query/clinic_list_query_bloc.dart';
+import 'package:tch_indonesia/src/app/model/doctor_list.dart';
 
 class DoctorListScreen extends StatefulWidget {
-  const DoctorListScreen._();
+  const DoctorListScreen._({required this.doctorList});
+  final DoctorList? doctorList;
 
-  static Widget prepare() {
+  static Widget prepare({
+    required DoctorList doctorList,
+  }) {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
@@ -16,7 +20,7 @@ class DoctorListScreen extends StatefulWidget {
         //   create: (context) => SaveTokenBloc(),
         // )
       ],
-      child: const DoctorListScreen._(),
+      child: DoctorListScreen._(doctorList: doctorList),
     );
   }
 
@@ -34,12 +38,11 @@ class _DoctorListScreenState extends State<DoctorListScreen> {
             child: Container(
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height / 2.1,
-              decoration: const BoxDecoration(
+              decoration: BoxDecoration(
                   image: DecorationImage(
                       fit: BoxFit.cover,
-                      image: NetworkImage(
-                          'https://img.freepik.com/free-photo/attractive-young-male-nutriologist-lab-coat-smiling-against-white-background_662251-2960.jpg')),
-                  borderRadius: BorderRadius.all(Radius.circular(20))),
+                      image: NetworkImage('${widget.doctorList!.photo}')),
+                  borderRadius: const BorderRadius.all(Radius.circular(20))),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
@@ -56,25 +59,25 @@ class _DoctorListScreenState extends State<DoctorListScreen> {
                             ],
                             begin: Alignment.bottomCenter,
                             end: Alignment.topCenter)),
-                    child: const Row(
+                    child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
                         Column(
                           children: [
-                            Text(
+                            const Text(
                               'Patents',
                               style: TextStyle(
                                   fontSize: 20,
                                   fontWeight: FontWeight.bold,
                                   color: Colors.white),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 8,
                             ),
                             Text(
-                              '1.7 k',
-                              style: TextStyle(
+                              '${widget.doctorList?.patient}',
+                              style: const TextStyle(
                                   fontSize: 20,
                                   fontWeight: FontWeight.bold,
                                   color: Colors.white),
@@ -83,19 +86,19 @@ class _DoctorListScreenState extends State<DoctorListScreen> {
                         ),
                         Column(
                           children: [
-                            Text(
+                            const Text(
                               'Experience',
                               style: TextStyle(
                                   fontSize: 20,
                                   fontWeight: FontWeight.bold,
                                   color: Colors.white),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 8,
                             ),
                             Text(
-                              '5 yr',
-                              style: TextStyle(
+                              '${widget.doctorList?.flightHours} Hour',
+                              style: const TextStyle(
                                   fontSize: 20,
                                   fontWeight: FontWeight.bold,
                                   color: Colors.white),
@@ -104,19 +107,19 @@ class _DoctorListScreenState extends State<DoctorListScreen> {
                         ),
                         Column(
                           children: [
-                            Text(
+                            const Text(
                               'Rating',
                               style: TextStyle(
                                   fontSize: 20,
                                   fontWeight: FontWeight.bold,
                                   color: Colors.white),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 8,
                             ),
                             Text(
-                              '3.7',
-                              style: TextStyle(
+                              '${widget.doctorList?.rating}',
+                              style: const TextStyle(
                                   fontSize: 20,
                                   fontWeight: FontWeight.bold,
                                   color: Colors.white),
@@ -138,43 +141,43 @@ class _DoctorListScreenState extends State<DoctorListScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'ANDRIAN HOK HALIM',
-                style: TextStyle(
+                '${widget.doctorList?.name}',
+                style: const TextStyle(
                     fontSize: 25,
                     fontWeight: FontWeight.bold,
                     color: Colors.white),
               ),
               Row(
                 children: [
-                  Icon(
+                  const Icon(
                     Icons.heart_broken_outlined,
                     color: Colors.red,
                     size: 30,
                   ),
-                  SizedBox(width: 7),
+                  const SizedBox(width: 7),
                   Text(
-                    'GENERAL PRACTITIONER',
-                    style: TextStyle(
+                    '${widget.doctorList?.description}',
+                    style: const TextStyle(
                         fontSize: 15,
                         fontWeight: FontWeight.bold,
                         color: Colors.white),
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 7,
               ),
-              Text(
+              const Text(
                 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry is standard dummy text ever since the 1500',
                 style: TextStyle(
                     fontSize: 12,
                     fontWeight: FontWeight.bold,
                     color: Colors.white),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 7,
               ),
-              Text(
+              const Text(
                 'Booking Date',
                 style: TextStyle(
                     fontSize: 20,
@@ -190,10 +193,10 @@ class _DoctorListScreenState extends State<DoctorListScreen> {
                   itemBuilder: (context, index) {
                     return InkWell(
                       child: Container(
-                        margin:
-                            EdgeInsets.symmetric(horizontal: 8, vertical: 5),
-                        padding:
-                            EdgeInsets.symmetric(vertical: 8, horizontal: 25),
+                        margin: const EdgeInsets.symmetric(
+                            horizontal: 8, vertical: 5),
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 8, horizontal: 25),
                         decoration: BoxDecoration(
                             color: index == 1 ? Colors.blue : Colors.white,
                             borderRadius: BorderRadius.circular(10),
