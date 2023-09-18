@@ -1,0 +1,237 @@
+@startuml 
+
+!theme carbon-gray
+skinparam backgroundColor #white
+skinparam defaultFontName Arial
+
+skinparam linetype ortho
+skinparam arrowThickness 2
+
+!$line_color_hospital = "#673AB7" 
+!$line_color_doctor = "#2196F3"
+!$line_color_product = "#4CAF50"
+
+!$rectangle_color_hospital = "#EDE7F6" 
+!$rectangle_color_doctor = "#E3F2FD"
+!$rectangle_color_product = "#F1F8E9"
+
+
+!$master = "##1ac6ff" 
+!$briding = "##ff6633" 
+
+
+
+rectangle "Hospitals" $rectangle_color_hospital { 
+
+    entity hospitals $master {  
+        *code : varchar(9) <<PK>>
+        --
+        name : varchar(100)
+        regency : varchar(100)
+        address : varchar(20)
+        number_phone : varchar(100)
+        ownership : varchar(100) 
+        director : varchar(100) 
+        class_hospital : varchar(5)
+        type_hospital : varchar(300)
+        status_blu : varchar(50) 
+        hospital_bed : varchar(9) <<Array>>
+        services : varchar(9) <<FK>>
+        wide_area : double
+        wide_building ; double 
+
+    }
+    
+    entity hospitals_beds $briding {
+        *code : varchar(9) <<PK>>
+        --
+        *id : varchar(9) <<FK>>
+        qty : int
+    }
+ 
+    entity beds $master {
+        *id : varchar(9) <<PK>>
+        --
+        name : varchar(100) 
+    }
+
+    entity services $master {
+        *id: varchar(9)<<PK>>
+        --
+        service : varchar(100)
+    }
+
+    entity hospital_services $briding {
+        *id : varchar(9)<<PK>>
+        --
+        *code : varchar(9)<<FK>>
+    }
+
+    entity hospital_profesionals $briding {
+        *id_sdm : varchar(9) <<PK>>
+        --
+        *code : varchar(9) <<FK>> 
+    }
+
+    entity group_profesionals $master {
+        *id: varchar(9) <<PK>>
+        --
+        name : varchar(100) 
+    }
+
+    entity sdm_categories $master {
+        *id_sdm : varchar(9) <<PK>>
+        --
+        name : varchar(100)
+        *id : varchar(9) <<FK>>
+    }
+
+    
+}
+
+rectangle "Outlets Principle" $rectangle_color_hospital { 
+
+    entity dbo_M_Outlet $master {  
+        *MO_KodeOutlet : varchar(9) <<PK>>
+        --
+        MO_NamaOutlet : varchar(100)
+        MO_AlamatOutlet : varchar(200)
+        MO_Owner : varchar(100)
+        MO_Kota : varchar(50)
+        MO_IdKota : varchar(20) 
+        MO_GroupArea : varchar(100)  
+
+    }
+
+    entity outlets_hospitals $briding {  
+        *MO_KodeOutlet : varchar(9) <<PK>>
+         
+        *code_hospital : varchar(9) <<FK>>
+
+    }   
+}
+
+rectangle "Customers Principle" $rectangle_color_doctor{ 
+
+    entity dbo_M_Header_Customer $master {  
+        *MC_KodeArea : varchar(9) <<PK>>
+        --
+        MC_KodeCustomer : varchar(10)
+        MC_NamaCustomer : varchar(100)
+        MC_AreaPraktek : varchar(200)
+        MC_KodeSPC : varchar(10)
+        MC_Aktif_YN : varchar(5) 
+
+    }  
+}
+
+rectangle "Doctors" $rectangle_color_doctor { 
+    entity doctors $master { 
+        *id : varchar(10) <<PK>>
+        --
+        name : varchar(100)
+        MC_KodeCustomer : varchar(10) <<FK>>
+        gender : varchar()
+        practic_location : varchar(200)<<Array>>
+        university : varchar(150)
+        qualifications : varchar(50) <<Array>>
+        number_str : varchar(100)
+        number_file : varchar(100)
+        date_determintaion : datime
+        end_date : datime
+        city : varchar(100)
+        status : varchar(100)
+        jeniscetakanstr : varchar(200)
+        image : varchar(100)
+    }
+
+    entity qualifications $master {
+        *id : varchar(9) <<PK>>
+        --
+        name : varchar(200) 
+    } 
+
+    entity doctors_hospitals $briding {
+        *id : varchar(10) <<PK>>
+        --
+        *code_hospital : varchar(9) <<FK>> 
+        periode_start : datime
+        periode_end : datime
+    }
+
+
+}
+
+rectangle "Products Principle" $rectangle_color_product{ 
+
+    entity products_compotitions $briding {
+        *ProductId : varchar(9) <<PK>>
+        --
+        *id : varchar(9) <<FK>>
+
+    }
+
+    entity dbo_Product $master {  
+        *ProductId : varchar(9) <<PK>>
+        --
+        ProductName : varchar(100)
+        ProductUnit : varchar(10)
+        ProductUnit : varchar(20)
+        ProductType : varchar(10)
+        UnitPack : varchar(20) 
+        compotition : varchar(50)<<Array>>
+
+    }
+
+    entity dbo_compotitions $master {
+        *id : varchar(10) <<PK>>
+        --
+        *name : varchar(100)
+    } 
+    
+}
+
+
+
+rectangle "Products" $rectangle_color_product{ 
+     entity products $master {
+        *code : varchar(10) <<PK>>
+        --
+        name : varchar(100)
+        ProductId : varchar(9) <<FK>>
+        number_registrasion : varchar(100)
+        date_determintaion : datime
+        end_date : datime
+        publish_by : varchar(200) 
+        suppley : varchar(100)
+        compotition : varchar(50) <<Array>>
+        brand : varchar(100)
+        packaging : varchar(200)
+        registration : varchar(200)
+        production_by : varchar(500)
+    } 
+
+}
+
+hospital_services --> hospitals $line_color_hospital : code
+hospital_services --> services $line_color_hospital : id
+hospital_profesionals --> hospitals $line_color_hospital : code
+hospital_profesionals --> sdm_categories $line_color_hospital : id_sdm
+sdm_categories --> group_profesionals $line_color_hospital : id
+hospitals_beds --> hospitals $line_color_hospital : code
+hospitals_beds --> beds $line_color_hospital : id
+
+outlets_hospitals --> dbo_M_Outlet $line_color_hospital : MO_Kode_Outlet
+outlets_hospitals --> hospitals $line_color_hospital : code
+
+doctors --> qualifications $line_color_doctor : id
+doctors --> dbo_M_Header_Customer $line_color_doctor : MC_KodeCustomer
+doctors_hospitals --> doctors $line_color_doctor : id
+doctors_hospitals --> hospitals $line_color_hospital : code 
+
+products --> dbo_Product $line_color_product : ProdcutId
+dbo_compotitions <-- products_compotitions $line_color_product : id
+products_compotitions --> dbo_Product  $line_color_product : ProdcutId 
+
+
+@enduml

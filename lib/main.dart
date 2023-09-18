@@ -29,8 +29,6 @@ void main() async {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
-// This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ThemeModeBloc, ThemeMode>(
@@ -47,5 +45,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
-// pub global run rename --appname "code"

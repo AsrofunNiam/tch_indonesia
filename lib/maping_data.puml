@@ -1,0 +1,285 @@
+@startuml 
+
+!theme carbon-gray
+skinparam backgroundColor #white
+skinparam defaultFontName Arial
+
+skinparam linetype ortho
+skinparam arrowThickness 2
+
+!$line_color_hospital = "#673AB7" 
+!$line_color_doctor = "#2196F3"
+!$line_color_product = "#4CAF50"
+
+!$rectangle_color_hospital = "#EDE7F6" 
+!$rectangle_color_doctor = "#E3F2FD"
+!$rectangle_color_product = "#F1F8E9"
+
+
+!$master = "##1ac6ff" 
+!$briding = "##ff6633" 
+
+
+
+rectangle "Hospitals" $rectangle_color_hospital { 
+
+    entity hospital_header $master {  
+        *code : varchar(9) <<PK>>
+        --
+        name : varchar(100)
+        regency : varchar(100)
+        address : varchar(20)
+        number_phone : varchar(100)
+        ownership : varchar(100) 
+        director : varchar(100) 
+        class_hospital : varchar(5)
+        type_hospital : varchar(300)
+        status_blu : varchar(50) 
+        hospital_bed : varchar(9) <<Array>>
+        services : varchar(9) <<FK>>
+        wide_area : double
+        wide_building ; double 
+
+    }
+    
+    entity hospitals_briding $briding {
+        *code_hospital : varchar(9) <<PK>>
+        --
+        *id_bed : varchar(9) <<FK>>
+        qty : int
+    }
+ 
+    entity hospital_beds $master {
+        *id_bed : varchar(9) <<PK>>
+        --
+        class_name : varchar(100) 
+    }
+
+    entity services $master {
+        *id_service: varchar(9)<<PK>>
+        --
+        service : varchar(100)
+    }
+
+    entity services_briding $briding {
+        *id_service: varchar(9)<<PK>>
+        --
+        *code_hospital : varchar(9)<<FK>>
+    }
+
+    entity profesionals_briding $briding {
+        *id_sdm_categori : varchar(9) <<PK>>
+        --
+        *code_hospital : varchar(9) <<FK>> 
+    }
+
+    entity profesionals $master {
+        *id_profesional : varchar(9) <<PK>>
+        --
+        name_profesional_group : varchar(100) 
+    }
+
+    entity sdm_categories $master {
+        *id_sdm_categori : varchar(9) <<PK>>
+        --
+        name_sdm_categori : varchar(100)
+        *id_profesional : varchar(9) <<FK>>
+    }
+
+    
+}
+
+rectangle "Outlets Principle" $rectangle_color_hospital { 
+
+    entity dbo_M_Outlet $master {  
+        *MO_KodeOutlet : varchar(9) <<PK>>
+        --
+        MO_NamaOutlet : varchar(100)
+        MO_AlamatOutlet : varchar(200)
+        MO_Owner : varchar(100)
+        MO_Kota : varchar(50)
+        MO_IdKota : varchar(20) 
+        MO_GroupArea : varchar(100)  
+
+    }
+
+    entity outlet_briding $briding {  
+        *MO_KodeOutlet : varchar(9) <<PK>>
+         
+        *code_hospital : varchar(9) <<FK>>
+
+    }
+    ' outle_brifng dan db-_M_outle di delet  pidah langsumg hospital header
+
+    
+}
+
+rectangle "Customers Principle" $rectangle_color_doctor{ 
+
+    entity dbo_M_Header_Customer $master {  
+        *MC_KodeArea : varchar(9) <<PK>>
+        --
+        MC_KodeCustomer : varchar(10)
+        MC_NamaCustomer : varchar(100)
+        MC_AreaPraktek : varchar(200)
+        MC_KodeSPC : varchar(10)
+        MC_Aktif_YN : varchar(5) 
+
+    } 
+
+    entity customers_briding $briding{
+        *MC_KodeCustomer : varchar(9) <<PK>>
+        --
+        MC_AreaPraktek : varchar(100)
+        *id_doctor : varchar(9) <<PK>>
+    }
+
+        ' cust_brifng dan db-heder_cust di delet  pidah langsumg doctor
+        ' 
+
+
+    
+}
+
+rectangle "Doctors" $rectangle_color_doctor { 
+    entity doctor $master { 
+        *id_doctor : varchar(10) <<PK>>
+        --
+        name : varchar(100)
+        gender : varchar()
+        practic_location : varchar(200)<<Array>>
+        university : varchar(150)
+        qualification : varchar(50) <<FK>>
+        number_str : varchar(100)
+        number_file : varchar(100)
+        date_determintaion : datime
+        end_date : datime
+        city : varchar(100)
+        status : varchar(100)
+        jeniscetakanstr : varchar(200)
+        image : varchar(100)
+    }
+
+    entity qualification $master {
+        *id_qualification : varchar(9) <<PK>>
+        --
+        name_qualification : varchar(200) 
+    } 
+
+    entity doctor_locations $briding {
+        *id_doctor : varchar(10) <<PK>>
+        --
+        *code_hospital : varchar(9) <<FK>> 
+        periode_start : datime
+        periode_end : datime
+    }
+
+
+}
+
+rectangle "Products Principle" $rectangle_color_product{ 
+
+    entity products_briding $briding {
+        *ProductId : varchar(9) <<PK>>
+        --
+        *id_compotition : varchar(9) <<FK>>
+
+    }
+
+    entity dbo_Product $master {  
+        *ProductId : varchar(9) <<PK>>
+        --
+        ProductName : varchar(100)
+        ProductUnit : varchar(10)
+        ProductUnit : varchar(20)
+        ProductType : varchar(10)
+        UnitPack : varchar(20) 
+        compotition : varchar(50)<<Array>>
+
+    }
+
+    entity dbo_compotitions $master {
+        *id_compotition_pp : varchar(10) <<PK>>
+        --
+        *name_compotition : varchar(100)
+    }
+
+    entity compotitions_compare $briding {
+        *id_compotition_pp : varchar(10) <<PK>>
+        --
+        id_compotition_p : varchar(10)<<FK>>
+    }
+
+'  sisakan product & compotition_briding
+'  add product_id metiska di compotitions_briding
+
+
+    
+}
+
+
+
+rectangle "Products" $rectangle_color_product{ 
+     entity products $master {
+        *code_product : varchar(10) <<PK>>
+        --
+        number_registrasion : varchar(100)
+        date_determintaion : datime
+        end_date : datime
+        publish_by : varchar(200)
+        product : varchar(50)
+        name_product : varchar(100)
+        suppley : varchar(100)
+        compotition : varchar(50) <<Array>>
+        brand : varchar(100)
+        packaging : varchar(200)
+        registration : varchar(200)
+        production_by : varchar(500)
+    }
+
+     entity compotitions_briding $briding { 
+        *id_compotition : varchar(10) <<PK>>
+        --
+        *code_product : varchar(10)<<FK>>
+         
+    } 
+
+    entity compotitions $master {
+        *id_compotition_p : varchar(10) <<PK>>
+        --
+        name_compotition : varchar(100)
+    }
+
+
+}
+
+hospitals_briding <-- hospital_header $line_color_hospital : code
+hospitals_briding <-- hospital_beds $line_color_hospital : id_bed
+
+services_briding <-- hospital_header $line_color_hospital : code
+services_briding <-- services $line_color_hospital : id_service 
+profesionals_briding <-- hospital_header $line_color_hospital : code
+profesionals_briding <-- sdm_categories $line_color_hospital : id_sdm_categorie
+sdm_categories <-- profesionals $line_color_hospital : id_profesional
+
+outlet_briding <-- dbo_M_Outlet $line_color_hospital : MO_Kode_Outlet
+outlet_briding <-- hospital_header $line_color_hospital : code_hospital
+
+
+doctor <-- qualification $line_color_doctor : id_qualification
+doctor_locations --> doctor $line_color_doctor : id_doctor
+doctor_locations <-- hospital_header $line_color_doctor : code
+
+customers_briding <-- doctor $line_color_doctor : id_doctor
+customers_briding <-- dbo_M_Header_Customer $line_color_doctor : MC_KodeCustomer
+ 
+products_briding <-- dbo_Product $line_color_product : ProductId 
+
+products --> compotitions_briding $line_color_product : code_product
+dbo_compotitions --> products_briding $line_color_product : id_compotition
+compotitions --> compotitions_briding $line_color_product : id_compotition
+dbo_compotitions --> compotitions_compare $line_color_product : id_compotition_pp
+compotitions --> compotitions_compare $line_color_product : id_compotition_p
+
+
+@enduml
