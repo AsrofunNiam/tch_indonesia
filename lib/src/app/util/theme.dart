@@ -3,9 +3,9 @@ import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class ThemeApp {
-  static T isIf<T>(BuildContext context, {required T light, required T dark}) {
-    return Theme.of(context).brightness == Brightness.dark ? dark : light;
-  }
+  // static T isIf<T>(BuildContext context, {required T light, required T dark}) {
+  //   return Theme.of(context).brightness == Brightness.dark ? dark : light;
+  // }
 
   static ThemeData light = ThemeData(
     textTheme: GoogleFonts.quicksandTextTheme(

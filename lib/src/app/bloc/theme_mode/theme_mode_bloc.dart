@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -18,6 +20,8 @@ import 'package:hydrated_bloc/hydrated_bloc.dart';
 class ThemeModeBloc extends HydratedBloc<ThemeMode, ThemeMode> {
   ThemeModeBloc() : super(ThemeMode.system) {
     on<ThemeMode>((event, emit) async {
+      StreamController();
+
       // event.when(started: (theme) {
       emit(state == ThemeMode.dark ? ThemeMode.light : ThemeMode.dark);
       // });

@@ -233,7 +233,7 @@ class _DoctorListScreenState extends State<DoctorListScreen> {
                   },
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               const Text(
@@ -252,10 +252,10 @@ class _DoctorListScreenState extends State<DoctorListScreen> {
                   itemBuilder: (context, index) {
                     return InkWell(
                       child: Container(
-                        margin:
-                            EdgeInsets.symmetric(horizontal: 8, vertical: 5),
-                        padding:
-                            EdgeInsets.symmetric(vertical: 8, horizontal: 25),
+                        margin: const EdgeInsets.symmetric(
+                            horizontal: 8, vertical: 5),
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 8, horizontal: 25),
                         decoration: BoxDecoration(
                             color: index == 1 ? Colors.blue : Colors.white,
                             borderRadius: BorderRadius.circular(10),
@@ -284,7 +284,7 @@ class _DoctorListScreenState extends State<DoctorListScreen> {
                   },
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 70,
               )
             ],

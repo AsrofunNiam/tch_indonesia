@@ -9,11 +9,13 @@ import 'package:tch_indonesia/src/app/view/page/sign_up/widget/sign_up_screen.da
 import 'package:tch_indonesia/src/app/view/page/theme_mode_switch.dart';
 
 class WelcomeScreen extends StatelessWidget {
-  const WelcomeScreen({super.key});
+  const WelcomeScreen({super.key, required this.themeModeBloc});
 
-  static Widget prepare() {
-    return const WelcomeScreen();
-  }
+  final ThemeModeBloc themeModeBloc;
+
+  // static Widget prepare() {
+  //   return const WelcomeScreen();
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +26,7 @@ class WelcomeScreen extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                const ThemeModeSwitcher(),
+                ThemeModeSwitcher(themeModeBloc: themeModeBloc),
                 Align(
                   alignment: Alignment.centerRight,
                   child: TextButton(

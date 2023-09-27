@@ -4,7 +4,6 @@ import 'package:intl/intl.dart';
 class ClinicScreenFooter extends StatelessWidget {
   ClinicScreenFooter({super.key, this.price});
   int? price;
-  // int? priceNew = money
   final currencyFormatter = NumberFormat('#,##0.00', 'ID');
 
   @override

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tch_indonesia/src/app/bloc/clinic_list_query/clinic_list_query_bloc.dart';
+import 'package:tch_indonesia/src/app/view/page/login/login_page.dart';
 import 'package:tch_indonesia/src/app/view/page/welcome/welcome_page.dart';
 
 class SettingScreen extends StatefulWidget {
@@ -174,9 +175,7 @@ class _SettingScreenState extends State<SettingScreen> {
         ),
         ListTile(
           onTap: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context) {
-              return const WelcomePage();
-            }));
+            Navigator.push(context, LoginPage.route(context));
           },
           leading: Container(
             padding: const EdgeInsets.all(10),
