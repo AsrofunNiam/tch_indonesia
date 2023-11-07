@@ -5,7 +5,7 @@ import 'package:tch_indonesia/src/app/bloc/theme_mode/theme_mode_bloc.dart';
 class ThemeModeSwitcher extends StatelessWidget {
   const ThemeModeSwitcher({super.key, required this.themeModeBloc});
 
-  final ThemeModeBloc themeModeBloc;
+  final ThemeModeBloc? themeModeBloc;
 
   @override
   Widget build(BuildContext context) {

@@ -1,17 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tch_indonesia/src/app/bloc/theme_mode/theme_mode_bloc.dart';
-import 'package:tch_indonesia/src/app/view/new-fiture/maps/maps_test.dart';
 import 'package:tch_indonesia/src/app/view/page/doctor_list/doctor_list_page.dart';
-import 'package:tch_indonesia/src/app/view/page/doctor_list/widget/doctor_list_screen.dart';
 import 'package:tch_indonesia/src/app/view/page/login/login_page.dart';
 import 'package:tch_indonesia/src/app/view/page/sign_up/widget/sign_up_screen.dart';
 import 'package:tch_indonesia/src/app/view/page/theme_mode_switch.dart';
 
 class WelcomeScreen extends StatelessWidget {
-  const WelcomeScreen({super.key, required this.themeModeBloc});
+  const WelcomeScreen({super.key, this.themeModeBloc});
 
-  final ThemeModeBloc themeModeBloc;
+  final ThemeModeBloc? themeModeBloc;
 
   // static Widget prepare() {
   //   return const WelcomeScreen();

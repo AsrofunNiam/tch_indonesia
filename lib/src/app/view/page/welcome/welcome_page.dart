@@ -17,7 +17,7 @@ class WelcomePage extends StatelessWidget {
         height: MediaQuery.of(context).size.height,
         padding: const EdgeInsets.all(20),
         // color: Colors.white,
-        child: WelcomeScreen(themeModeBloc: themeModeBloc!),
+        child: WelcomeScreen(themeModeBloc: themeModeBloc),
       ),
     );
   }
